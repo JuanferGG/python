@@ -29,7 +29,7 @@ print("lista final:", lista1)
 # Elimina la primera aparición del número 1 en lista_a usando remove().
 # Elimina el elemento en el índice 3 de lista_a usando pop(). Imprime el elemento eliminado.
 # Limpia completamente lista_b usando clear().
-print("- Ejercicio #2 -")
+print("\n- Ejercicio #2 -")
 lista_a = [1, 2, 3]
 lista_b = [4, 5, 6, 1, 2]
 lista_a.extend(lista_b)
@@ -45,12 +45,23 @@ print("Lista b:", lista_b)
 # Crea una lista con los números del 1 al 10.
 # Utiliza slicing y del para eliminar los elementos desde el índice 2 hasta el 5 (sin incluir el 5).
 # Imprime la lista resultante.
+print("\n- Ejercicio #3 -")
+lista_numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+del lista_numeros[2:5]
+print("Nueva lista de numeros", lista_numeros)
+
 
 # Ejercicio 4: Ordenar y contar
 # Crea una lista con los siguientes números: [5, 2, 8, 1, 9, 4, 2].
 # Ordena la lista de forma ascendente usando sort().
 # Cuenta cuántas veces aparece el número 2 en la lista usando count().
 # Comprueba si el número 7 está en la lista usando in.
+print("\n- Ejercicio #4 -")
+numeros_2 = [5, 2, 8, 1, 9, 4, 2]
+numeros_2.sort()
+num_vec_2 = numeros_2.count(2)
+print("Lista ordenada:", numeros_2)
+print("Numero de veces contado el #2:", num_vec_2)
 
 # Ejercicio 5: Copia vs. Referencia
 # Crea una lista llamada original con los números [1, 2, 3].
@@ -59,7 +70,25 @@ print("Lista b:", lista_b)
 # Crea una referencia a la lista original llamada referencia.
 # Modifica el primer elemento de la lista referencia a 10.
 # Imprime las cuatro listas (original, copia_1, copia_2, referencia) y observa los cambios.
+print("\n- Ejercicio #5 -")
+num_3 = [1, 2, 3]
+copia_1 = num_3[:]
+copia_2 = num_3.copy()
+referencia = num_3
+referencia[0] = 10 #! Al mutar la referencia muta el original pues estan en el mismo espacio de memoria
+print("Original:", num_3)
+print("Copia 1:", copia_1)
+print("Copia 2:", copia_2)
+print("Referencia:", referencia)
+print("ID original:", id(num_3))
+print("ID referencia:", id(referencia))
 
 # Ejercicio 6: Ordenar strings sin diferenciar mayúsculas y minúsculas.
 # Crea una lista con las siguientes cadenas: ["Manzana", "pera", "BANANA", "naranja"].
 # Ordena la lista sin diferenciar entre mayúsculas y minúsculas.
+print("\n- Ejercicio #6 -")
+strings = ["Manzana", "pera", "BANANA", "naranja"]
+strings.sort()
+print("Strings ordenados sin diferenciar:", strings)
+strings.sort(key=str.lower)
+print("Strings ordenados con diferenciar:", strings)
