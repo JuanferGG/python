@@ -35,3 +35,17 @@ resultado = battle(lista_a, lista_b)  # -> "x"
 # Resultado: "x"
 """
 
+from os import system
+if system("clear") != 0: system("cls")
+
+def battle(lista_a, lista_b):
+    puntos_a = sum(lista_a)
+    puntos_b = sum(lista_b)
+
+    return f"{puntos_a - puntos_b}a" if puntos_a > puntos_b else f"{puntos_b -puntos_a}b" if puntos_b > puntos_a else "x"
+
+lista_a = [2, 4, 2]
+lista_b = [3, 3, 4]
+
+winner = battle(lista_a, lista_b)
+print(f"Winner: {winner}")
