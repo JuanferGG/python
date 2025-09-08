@@ -56,3 +56,76 @@ if found_word:
 else:
     print("Palabra no encontrada")
 
+
+###! Encontrar todas las coincidencias de un patrón
+#! .findall() devuelve una lista con todas las coincidencias
+
+text = "Me gusta Python. Python es lo máximo. Aunque Python no es tan difícil, ojo con Python"
+pattern = "Python"
+
+matches = re.findall(pattern, text)
+print(f"La cantidad de veces que se repite Python son: {len(matches)}")
+
+#! -------------------------
+
+#! iter() devuelve un iterador que contiene todos los resultados de la búsqueda
+
+text = "Me gusta Python. Python es lo máximo. Aunque Python no es tan difícil, ojo con Python"
+pattern = "Python"
+
+matches = re.finditer(pattern, text)
+
+for match in matches:
+    print(match.group(), match.start(), match.end())
+
+
+#? EJERCICIO 02
+#? Encuentra todas las ocurrencias de la palabra "midu" 
+#? en el siguiente texto e indica en que posición empieza 
+#? y termina cada coincidencia y cuantas veces se encontró.
+text = "Este es el curso de Python de midudev. ¡Suscríbete a midudev si te gusta este contenido! midu"
+
+pattern = "midu"
+
+matches = list(re.finditer(pattern, text))
+
+for match in matches:
+    print(f"inicio: {match.start()} y termina en {match.end()}")
+
+print(f"Veces contado la palabra 'midu': {len(matches)} veces.")
+
+
+###! Modificadores
+
+#! Los modificadores son opciones que se pueden agregar a un patrón para cambiar su comportamiento
+#! re.IGNORECASE: Ignora las mayúsculas y minúsculas
+
+text = "Todo el mundo dice que la IA nos va a quitar el trabajo. Pero la ia no es tan mala. ¡Viva la Ia!"
+pattern = "IA"
+
+found = re.findall(pattern, text, re.IGNORECASE) #? aqui ignora las mayusculas y minusculas
+
+if found: print(found)
+# else: print("Found no encontrado!")
+
+#? EJERCICIO 03
+#? Encuentra todas las ocurrencias de la palabra "python" 
+#? en el siguiente texto, sin distinguir entre mayúsculas y minúsculas.
+text = "Este es el curso de Python de midudev. ¡Suscríbete a python si te gusta este contenido! PYTHON"
+pattern = "python"
+
+found = re.findall(pattern, text, re.IGNORECASE)
+
+print(f"En el texto hay {len(found)} veces la palabra 'python'")
+
+
+###! Reemplazar el texto
+#! .sub() reemplaza todas las coincidencias de un patrón en un texto
+
+text = "Hola, mundo! Hola de nuevo. Hola otra vez."
+pattern = "hola"
+replacement = "adiós"
+
+new_text = re.sub(pattern, replacement, text, flags=re.IGNORECASE)
+
+print(f"Text nuevo: {new_text}")
