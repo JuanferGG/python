@@ -30,4 +30,3 @@ if response.status_code == 200:
 
     if match:
         print(f"El titulo de la web es: {match.group(1)}")
-
