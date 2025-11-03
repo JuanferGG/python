@@ -34,3 +34,40 @@ print(f"La suma de 5 y 7 es: {calculadora.sumar(5, 7)}")
 
 #? ➡️ Es ideal cuando el método no depende de atributos de la clase.
 
+class Persona:
+    contador = 0
+
+    def __init__(self, nombre):
+        self.nombre = nombre
+        Persona.contador += 1
+
+    @classmethod
+    def total_personas(cls):
+        print(f"Se han creado {cls.contador} personas.")
+
+
+p1 = Persona("Ana")
+p2 = Persona("Juan")
+
+Persona.total_personas()
+
+
+#? 🎭 5️⃣ Polimorfismo y sobreescritura
+
+class Animal:
+    def sonido(self):
+        print("Sonido generico")
+
+class Perro:
+    def sonido(self):
+        print("Guau!")
+
+class Gato:
+    def sonido(self):
+        print("Miau!")
+
+
+animales = [Perro(), Gato(), Animal()]
+
+for animal in animales:
+    animal.sonido()
